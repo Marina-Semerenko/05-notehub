@@ -1,17 +1,16 @@
 import axios, {  type AxiosResponse } from "axios"
-import type { Note } from "../types/note";
+import type {  Note } from "../types/note";
 
 export interface FetchNotesResponse {
     notes: Note[];
     totalCount: number;
-    page: number;
-    totalPages: number;
+    
 }
 
 export interface FetchNotesParams {
-    page?: number;
-    limit?: number;
-    search?: string;
+    title?: string;
+    content?: string;
+    tag?: string;
 }
 export const apiClient = axios.create({
     baseURL: "https://notehub-public.goit.study/api/",
@@ -30,12 +29,10 @@ export const fetchNotes = async (page: number, search: string): Promise<FetchNot
 };
 
 
-export const createNote = async (
-    note: FetchNotesParams): Promise<Note> => {
-    const response: AxiosResponse<Note> = await apiClient(`/notes`,
-        note
-    );
-    return response.data;
+export const createNote = async (note: Note): Promise<Note> => {
+    const response: AxiosResponse<Note> = await apiClient.post<Note>(`/notes/`, note);
+    return response.data;         
+ 
 };
 
 export const deleteNote = async (id: string): Promise<Note> => {

@@ -3,7 +3,7 @@ import ReactPaginateModule from "react-paginate";
 import type { ReactPaginateProps } from "react-paginate";
 import css from './Pagination.module.css'
 
-//дженерик
+
 type ModuleWithDefault<T> = { default: T };
 
 const ReactPaginate = (
