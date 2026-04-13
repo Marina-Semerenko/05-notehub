@@ -4,7 +4,7 @@ import type {  Note } from "../types/note";
 export interface FetchNotesResponse {
     notes: Note[];
     totalCount: number;
-    
+    totalPages: number;
 }
 
 export interface FetchNotesParams {
