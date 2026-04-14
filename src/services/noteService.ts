@@ -3,7 +3,6 @@ import type {  Note } from "../types/note";
 
 export interface FetchNotesResponse {
     notes: Note[];
-    totalCount: number;
     totalPages: number;
 }
 
@@ -17,7 +16,7 @@ export const apiClient = axios.create({
 });
 apiClient.defaults.headers.common['Authorization'] = `Bearer ${import.meta.env.VITE_NOTEHUB_TOKEN}`;
 
-export const fetchNotes = async (page: number, search: string): Promise<FetchNotesResponse> => {
+export const fetchNotes = async ({ page, search }: { page: number, search: string, sortBy?: string }): Promise<FetchNotesResponse> => {
     const response: AxiosResponse<FetchNotesResponse> = await apiClient.get('/notes', {
        params: {
             page,

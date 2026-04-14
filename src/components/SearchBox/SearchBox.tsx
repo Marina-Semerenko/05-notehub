@@ -1,8 +1,12 @@
 import css from './SearchBox.module.css';
 
 
+interface SearchBoxProps { 
+    onSearch: (query: string) => void; 
+}
 
-export default function SearchBox({ onSearch }: { onSearch: (query: string) => void }) { 
+
+export default function SearchBox({ onSearch }: SearchBoxProps)  { 
 
 
     return (
