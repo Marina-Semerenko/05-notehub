@@ -8,6 +8,8 @@ export interface Note {
     tag: "Todo" | "Work" | "Personal" | "Meeting" | "Shopping"
 }
 
+export type NoteTag = 'Todo' | 'Work' | 'Personal' | 'Meeting' | 'Shopping';
+
 export interface NewNote {
     title: string;
     content: string;

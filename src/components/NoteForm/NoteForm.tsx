@@ -48,7 +48,7 @@ export default function NoteForm({ onClose }: NoteFormProps) {
     ) => {
         mutation.mutate(
             {
-                title: values.title,
+                 title: values.title,
                 content: values.content,
                 tag: values.tag
             }
