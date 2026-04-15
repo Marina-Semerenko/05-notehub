@@ -6,7 +6,7 @@ export interface FetchNotesResponse {
     totalPages: number;
 }
 
-export interface FetchNotesParams {
+export interface CreateNoteRequest {
     title: string;
     content: string;
     tag: NoteTag;
@@ -28,7 +28,7 @@ export const fetchNotes = async (page: number, search: string): Promise<FetchNot
 };
 
 
-export const createNote = async (note:FetchNotesParams): Promise<Note> => {
+export const createNote = async (note:CreateNoteRequest): Promise<Note> => {
     const response: AxiosResponse<Note> = await apiClient.post<Note>(`/notes/`, note);
     return response.data;         
  
